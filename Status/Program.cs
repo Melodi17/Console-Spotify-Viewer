@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -112,7 +111,7 @@ static string Authenticate()
 public static class ServerManager
 {
     public static bool Recieved = false;
-    public static string Token;
+    public static string Token = "";
     [HTTPRequest("/callback", "get")]
     public static byte[] MsgRecieved(HttpListenerContext context)
     {
@@ -131,6 +130,6 @@ public static class ServerManager
     public static void Reset()
     {
         Recieved = false;
-        Token = null;
+        Token = "";
     }
 }

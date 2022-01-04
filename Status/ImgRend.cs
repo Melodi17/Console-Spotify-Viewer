@@ -27,7 +27,7 @@ namespace Status
             List<string> lines = new();
             lines.Add(DateTime.Now.ToString("hh:mm:ss dddd dd/MM/yyyy"));
             lines.Add(null);
-            lines.Add(root.item.name + (root.item.@explicit ? "[E] " : "") + (root.is_playing ? "" : Output.Rgb(150, 150, 150).Bold().Text(" (Paused)")));
+            lines.Add(root.item.name + (root.item.@explicit ? Output.Rgb(150, 150, 150).Bold().Text("[E] ") : "") + (root.is_playing ? "" : Output.Rgb(150, 150, 150).Bold().Text(" (Paused)")));
             lines.Add(root.item.album.name);
             lines.Add(string.Join(", ", root.item.artists.Select(x => x.name)));
             lines.Add(null);

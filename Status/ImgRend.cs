@@ -12,7 +12,12 @@ namespace Status
         private static string[] _AsciiChars = { "█", "#", "@", "%", "=", "+", "*", ":", "-", ".", " " };
         public static int Size = 20;
         public static string DrawMode = "fill";
+        public static Color Invert(Color c) => Color.FromArgb(Invert(c.R), Invert(c.G), Invert(c.B));
 
+        public static byte Invert(byte b)
+        {
+            return (byte)(b + 128);
+        }
         public static void Sweep(SpotifyRoot root)
         {
             Console.SetCursorPosition(0, 0);
@@ -21,8 +26,9 @@ namespace Status
             Console.Write(ConvertToAscii(resizedBmp));
             Color c = AverageColors(bmp);
             //DrawMode = new Random().Next(5) == 0 ? "gray" : "fill";
-            while (c.GetBrightness() < 0.01f)
-                c = c.Blend(Color.White, 0.1);
+            var bn = c.GetBrightness();
+            if (bn <= 0.1)
+                c = Invert(c);
 
             List<string> lines = new();
             lines.Add(DateTime.Now.ToString("hh:mm:ss dddd dd/MM/yyyy"));

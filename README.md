@@ -1,7 +1,7 @@
 # Console-Spotify-Viewer
  A C# console-based Spotify viewer
 
-<img src="C:\Users\melod\source\repos\Utilities\Console-Spotify-Viewer\displayimg.png" style="zoom:50%;" />
+![](displayimg.png)
 
 ### Change Log
 
